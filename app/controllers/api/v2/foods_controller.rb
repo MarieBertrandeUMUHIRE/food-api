@@ -1,4 +1,4 @@
-class FoodsController < ApplicationController
+class Api::V2::FoodsController < ApplicationController
   def index
     @foods = Food.all
 

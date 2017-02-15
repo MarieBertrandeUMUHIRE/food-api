@@ -7,7 +7,6 @@ json.array! @foods.each do |food|
    json.spice food.spice
  
    json.measurement food.measurement
- 
-  
+
  
  end 
