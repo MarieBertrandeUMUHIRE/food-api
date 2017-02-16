@@ -4,8 +4,9 @@ class Api::V2::FoodsController < ApplicationController
 
   end
   def create
-    @food = Food.new(ingredient: params[:ingredient], spice: params[:spice], measurement: params[:measurement])
-    @food.save
+    @food = Food.create(
+      ingredient: params[:ingredient], 
+      spice: params[:spice], measurement: params[:measurement])
     render :show
   end
   def update
