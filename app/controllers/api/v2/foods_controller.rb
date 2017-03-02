@@ -1,4 +1,5 @@
 class Api::V2::FoodsController < ApplicationController
+
   def index
     @foods = Food.all
 
@@ -18,4 +19,15 @@ class Api::V2::FoodsController < ApplicationController
       )
     render :show
   end
+
+  def show
+    @food = Food.find_by(id:params[:id])
+  end
+
+  def destroy
+    @food = Food.find_by(id: params[:id])
+    @food.destroy
+    flash[:warning] = "Product deleted"
+    redirect_to "/foods"
+ end
 end
