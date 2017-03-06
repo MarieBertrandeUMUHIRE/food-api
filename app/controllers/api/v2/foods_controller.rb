@@ -2,13 +2,15 @@ class Api::V2::FoodsController < ApplicationController
 
   def index
     @foods = Food.all
+    render json: @foods
 
   end
   def create
     @food = Food.create(
       ingredient: params[:ingredient], 
       spice: params[:spice], measurement: params[:measurement])
-    render :show
+
+      render json: @food
   end
   def update
     @food = Food.find_by(id:params[:id])
@@ -17,7 +19,7 @@ class Api::V2::FoodsController < ApplicationController
       spice: params[:spice], 
       measurement: params[:measurement]
       )
-    render :show
+    render json: @foods
   end
 
   def show
@@ -27,7 +29,6 @@ class Api::V2::FoodsController < ApplicationController
   def destroy
     @food = Food.find_by(id: params[:id])
     @food.destroy
-    flash[:warning] = "Product deleted"
-    redirect_to "/foods"
+    render json: @foods
  end
 end

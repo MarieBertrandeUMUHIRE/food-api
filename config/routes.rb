@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   get "/foods", to: 'foods#index'
+  # delete "/foods/:id", to: 'foods#destroy'
 end
